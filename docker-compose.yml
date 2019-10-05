@@ -1,0 +1,41 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    volumes:
+    - /tmp/ruby-docker-app/db:/var/lib/mysql
+    restart: always
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+
+  # redis:
+    # image: redis
+    # container_name: redis
+
+  memcached:
+    build:
+      context: .
+      dockerfile: ./docker/memcached/Dockerfile
+    image: my-memcached
+    container_name: memcached
+    ports:
+    - 11211:11211
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    image: ${AWS_ACCOUNT_NUMBER}.dkr.ecr.us-east-1.amazonaws.com/ruby-docker-app:${WEB_IMAGE_VERSION:-latest}
+    command: bash -c "bundle install && rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0" #bundle install for production?
+    working_dir: /app
+    container_name: web
+    restart: always
+    env_file: ./docker/web/development.env
+    depends_on:
+    - db
+    - redis
+    volumes:
+    - .:/app
+    ports:
+    - 3000:3000

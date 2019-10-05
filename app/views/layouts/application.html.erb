@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RubyDockerApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<%= render "layouts/header" %>
+<div class="body">
+  <%= render "layouts/flash_messages" %>
+  <%= yield %>
+</div>
+<%= render "layouts/footer" %>
+
+</body>
+</html>
