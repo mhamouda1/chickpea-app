@@ -9,10 +9,6 @@ services:
     environment:
     - MYSQL_ROOT_PASSWORD=password
 
-  # redis:
-    # image: redis
-    # container_name: redis
-
   memcached:
     build:
       context: .
@@ -34,7 +30,6 @@ services:
     env_file: ./docker/web/development.env
     depends_on:
     - db
-    - redis
     volumes:
     - .:/app
     ports:
