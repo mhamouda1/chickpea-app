@@ -13,7 +13,6 @@ pipeline {
       }
       steps {
         echo "Building..."
-        sh "echo ${AWS_SECRET_ACCESS_KEY}"
         sh 'sudo bash build.sh'
       }
     }
