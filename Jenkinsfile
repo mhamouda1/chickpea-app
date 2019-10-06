@@ -13,7 +13,7 @@ pipeline {
       }
       steps {
         echo "Building..."
-        bash 'build.sh'
+        sh 'sudo bash build.sh'
       }
     }
     stage ("Test") {
