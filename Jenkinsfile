@@ -13,7 +13,7 @@ pipeline {
       }
       steps {
         echo "Building..."
-        withAWS(credentials: 'aws', region: 'us-east-1') {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws']]) {
           sh 'sudo bash build.sh'
         }
       }
