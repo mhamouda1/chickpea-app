@@ -21,7 +21,7 @@ spec:
         - containerPort: 3000
         envFrom:
           - configMapRef:
-              name: production.env
+              name: production-env
         env:
         - name: NODE_HOST
           valueFrom:
