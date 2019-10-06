@@ -12,8 +12,7 @@ pipeline {
       steps {
         echo "Getting Secrets"
         sh "echo $ES_HOST > ES_HOST.txt"
-        sh "echo $env.ES_HOST > ES_HOST2.txt"
-        sh "sudo bash jenkins/get_secrets.sh ${ES_HOST}"
+        sh "sudo bash jenkins/get_secrets.sh"
       }
     }
     stage ("Build") {
