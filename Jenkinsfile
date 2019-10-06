@@ -29,5 +29,10 @@ pipeline {
         sh "sudo bash test.sh"
       }
     }
+    stage ("Cleanup") {
+      steps {
+        cleanWs()
+      }
+    }
   }
 }
