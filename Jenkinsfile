@@ -17,14 +17,11 @@ pipeline {
       }
       steps {
         echo "Building..."
+        echo "The output of my_output is: ${MY_OUTPUT}"
         echo sh(returnStdout: true, script: 'env')
         echo "${AWS_ACCESS_KEY_ID}"
         echo "${AWS_SECRET_ACCESS_KEY}"
         sh 'sudo bash build.sh'
-        script {
-          MY_OUTPUT = sh (script: 'cat blah.txt', returnStdout: true).trim()
-        }
-        echo "The output of my_output is: ${MY_OUTPUT}"
       }
     }
     stage ("Test") {
