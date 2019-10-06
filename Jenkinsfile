@@ -24,6 +24,12 @@ pipeline {
         sh "sudo bash jenkins/test.sh"
       }
     }
+    stage ("Deploy") {
+      steps {
+        echo "Deploying..."
+        sh "sudo bash jenkins/deploy.sh"
+      }
+    }
     stage ("Cleanup") {
       steps {
         echo "Cleaning..."
