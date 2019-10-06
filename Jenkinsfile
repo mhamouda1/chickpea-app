@@ -18,6 +18,7 @@ pipeline {
       }
       steps {
         echo "Building..."
+        echo sh(returnStdout: true, script: 'env')
         echo "${AWS_ACCESS_KEY_ID}"
         sh 'sudo bash build.sh'
       }
