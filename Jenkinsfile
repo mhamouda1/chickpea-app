@@ -14,8 +14,8 @@ pipeline {
       steps {
         withAWS(credentials:'abcdefg') {
           sh "aws ecr get-login --no-include-email --region us-east-1"
+          sh "sudo bash build.sh"
         }
-        sh "sudo bash build.sh"
         echo "Building..."
       }
     }
