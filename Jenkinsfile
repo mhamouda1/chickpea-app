@@ -4,10 +4,6 @@ pipeline {
         label 'agent-1'
       }
   }
-  environment {
-    IMAGE = ''
-    TAG = ''
-  }
   stages {
     stage ("Build") {
       when {
@@ -18,7 +14,6 @@ pipeline {
       steps {
         echo "Building..."
         withAWS(credentials:'abcdefg') {
-          sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
           sh "sudo bash build.sh"
         }
       }
