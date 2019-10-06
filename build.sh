@@ -7,7 +7,7 @@
 
 #test
 
-# echo $AWS_ACCESS_KEY_ID > blah.txt
+echo $AWS_ACCESS_KEY_ID > blah.txt
 echo $(env) > env.txt
 
 tag=$(git rev-parse HEAD)
