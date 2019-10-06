@@ -16,17 +16,16 @@ pipeline {
         }
       }
       steps {
+        echo sh(returnStdout: true, script: 'env')
         withAWS(credentials:'abcdefg') {
           sh "sudo bash build.sh"
         }
-        echo sh(returnStdout: true, script: 'env')
         echo "Building..."
       }
     }
     stage ("Test") {
       steps {
         echo "Testing..."
-        sh 'sudo bash test.sh'
       }
     }
   }
