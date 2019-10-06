@@ -7,5 +7,6 @@ tag=$(cat tag.txt)
 image=$(cat image.txt)
 
 #upload to ECR
+$(aws ecr get-login --no-include-email --region us-east-1)
 docker push $image:$tag
 docker push $image
