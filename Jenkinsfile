@@ -13,7 +13,9 @@ pipeline {
       }
       steps {
         echo "Building..."
-        sh 'sudo bash build.sh'
+        withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+          sh 'sudo bash build.sh'
+        }
       }
     }
     stage ("Test") {
