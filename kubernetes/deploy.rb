@@ -1,6 +1,7 @@
 require 'pry'
 #`git clone https://github.com/mhamouda1/chickpea-app`
 
-binding.pry
-`sed -i "s/REPLACE_GIT_SHA/$(git rev-parse HEAD)/g" deploy.yml`
-`k create -f deploy.yml`
+x = `cat kubernetes/deploy.yml.template`.gsub("REPLACE_AWS_ACCOUNT_NUMBER", "123")
+git_commit = `git rev-parse HEAD`.chomp
+x = x.gsub("REPLACE_GIT_SHA", git_commit)
+`echo "#{x.chomp}" > kubernetes/deploy.yml`

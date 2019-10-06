@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ruby-docker-app
-        image: REPLACE_AWS_ACCOUNT_NUMBER.dkr.ecr.us-east-1.amazonaws.com/ruby-docker-app:REPLACE_GIT_SHA
+        image: 123.dkr.ecr.us-east-1.amazonaws.com/ruby-docker-app:8197272a7b6f033d4c9438505944aeefee1d1796
         ports:
         - containerPort: 3000
         envFrom:
