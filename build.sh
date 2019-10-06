@@ -1,3 +1,16 @@
 #!/bin/bash
-ls -al
-docker-compose build -f docker/web/Dockerfile -t my_image:latest .
+tag=$GIT_COMMIT
+image=$(ruby -e "puts '`cat docker-compose.yml | grep amazon`'.split(' ').last.split(':').first")
+
+
+#build image
+sudo docker build -t $image:$tag -t $image:latest -f docker/web/Dockerfile .
+
+#run tests
+sudo /usr/local/bin/docker-compose run web bash -c "rake db:create && rake db:migrate && rake"
+
+#upload to ECR
+sudo $(aws ecr get-login --no-include-email --region us-east-1)
+sudo docker push $image:$tag
+sudo docker push $image
+
