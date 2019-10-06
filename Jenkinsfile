@@ -20,7 +20,7 @@ pipeline {
         echo sh(returnStdout: true, script: 'env')
         echo "${AWS_ACCESS_KEY_ID}"
         echo "${AWS_SECRET_ACCESS_KEY}"
-        sh 'sudo bash build.sh'
+        sh "sudo bash build.sh ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY}"
       }
     }
     stage ("Test") {
