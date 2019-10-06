@@ -8,7 +8,7 @@ pipeline {
     stage ("Build") {
       steps {
         echo "Building..."
-        echo "$HOSTNAME"
+        echo $HOSTNAME
       }
     }
     stage ("Test") {
