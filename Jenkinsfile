@@ -9,7 +9,6 @@ pipeline {
       steps {
         echo "Building..."
         echo "$HOSTNAME"
-        echo $HOSTNAME
       }
     }
     stage ("Test") {
