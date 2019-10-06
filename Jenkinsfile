@@ -4,7 +4,18 @@ pipeline {
         label 'agent-1'
       }
   }
+  environment {
+    ES_HOST = "157.245.224.16"
+  }
   stages {
+    stage ("Get Secrets") {
+      steps {
+        echo "Getting Secrets"
+        sh "echo $ES_HOST > ES_HOST.txt"
+        sh "echo $env.ES_HOST > ES_HOST2.txt"
+        sh "sudo bash jenkins/get_secrets.sh ${ES_HOST}"
+      }
+    }
     stage ("Build") {
       when {
         expression {

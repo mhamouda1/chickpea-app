@@ -1,0 +1,19 @@
+POST /chickpea/_doc
+{
+  "database": {
+    "name": "core",
+    "username": "my-username",
+    "password": "c29398323sasdffd",
+    "environment": "production"
+  }
+}
+
+POST /chickpea/_doc
+{
+  "database": {
+    "name": "core",
+    "username": "my-dev-username",
+    "password": "12345",
+    "environment": "development"
+  }
+}

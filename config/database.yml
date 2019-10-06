@@ -50,7 +50,7 @@ test:
 production:
   <<: *default
   database: rubydockerappproduction
-  username: myusername2332323
-  password: c3e472d4d79c8f281f84f838add4a9c0
-  host: chickpea-app.cbyu87ldveoq.us-east-1.rds.amazonaws.com
+  username: <%= ENV['RUBY_DOCKER_APP_DATABASE_USERNAME'] %>
+  password: <%= ENV['RUBY_DOCKER_APP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['RUBY_DOCKER_APP_DATABASE_HOST'] %>
   port: 3306

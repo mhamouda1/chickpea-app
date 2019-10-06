@@ -1,0 +1,1 @@
+curl -XGET "http://localhost:9200/chickpea/_search" -H 'Content-Type: application/json' -d'{  "query": {    "bool" : {      "must" : [        {  "term" : { "database.name.keyword": "core" }},        {  "term" : { "database.environment.keyword" : "production" }}      ]    }  }}'
