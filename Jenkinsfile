@@ -8,7 +8,8 @@ pipeline {
     stage ("Build") {
       steps {
         echo "Building..."
-        echo Jenkins.getInstance().getComputer(env['NODE_NAME']).getHostName()
+        def node_name = "${NODE_NAME}"
+        echo "The Node Name is: ${node_name}"
       }
     }
     stage ("Test") {
