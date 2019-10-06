@@ -16,6 +16,9 @@ pipeline {
         }
       }
       steps {
+        withAWS(credentials:'AKIAXAVGQO3RUIMYSFKS') {
+          sh "sudo bash build.sh"
+        }
         echo "Building..."
         echo sh(returnStdout: true, script: 'env')
         echo "${AWS_ACCESS_KEY_ID}"
