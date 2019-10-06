@@ -24,6 +24,12 @@ pipeline {
         sh "sudo bash jenkins/test.sh"
       }
     }
+    stage ("Provision") {
+      steps {
+        echo "Provision..."
+        sh "sudo bash jenkins/provision.sh"
+      }
+    }
     stage ("Deploy") {
       steps {
         echo "Deploying..."
