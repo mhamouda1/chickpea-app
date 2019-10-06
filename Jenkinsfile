@@ -16,7 +16,7 @@ pipeline {
         }
       }
       steps {
-        withAWS(credentials:'AKIAXAVGQO3RUIMYSFKS') {
+        withAWS(credentials:'abcdefg') {
           sh "sudo bash build.sh"
         }
         echo "Building..."
