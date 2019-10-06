@@ -20,6 +20,7 @@ pipeline {
       steps {
         echo "Testing..."
         withAWS(credentials:'abcdefg') {
+          sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
           sh "sudo bash jenkins/test.sh"
         }
       }
