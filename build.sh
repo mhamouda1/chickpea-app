@@ -1,7 +1,7 @@
 #!/bin/bash
 tag=$GIT_COMMIT
-image=$(ruby -e "puts '`cat docker-compose.yml | grep amazon`'.split(' ').last.split(':').first")
-
+# image=$(ruby -e "puts '`cat docker-compose.yml | grep amazon`'.split(' ').last.split(':').first")
+image="test"
 
 #build image
 docker build -t $image:$tag -t $image:latest -f docker/web/Dockerfile .
