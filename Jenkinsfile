@@ -8,8 +8,7 @@ pipeline {
     stage ("Build") {
       steps {
         echo "Building..."
-        def node_name = "${NODE_NAME}"
-        echo "The Node Name is: ${node_name}"
+        echo "The Node Name is: ${NODE_NAME}"
       }
     }
     stage ("Test") {
