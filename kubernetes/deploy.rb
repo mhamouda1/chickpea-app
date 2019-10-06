@@ -11,4 +11,4 @@ x = x.gsub("REPLACE_GIT_SHA", git_commit)
 `echo "#{x.chomp}" > kubernetes/deploy.yml`
 
 p 'running script, creating configmap, deploying'
-`kubectl delete configmap production-env && kubectl create configmap production-env --from-file=production.env && kubectl create -f kubernetes/deploy.yml`
+`kubectl delete configmap production-env 2>/dev/null && kubectl create configmap production-env --from-file=production.env && kubectl create -f kubernetes/deploy.yml`
