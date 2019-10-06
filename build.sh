@@ -1,4 +1,6 @@
 #!/bin/bash
+echo $AWS_SECRET_ACCESS_KEY
+
 tag=$(git rev-parse HEAD)
 # echo $tag
 # image=$(ruby -e "puts '`cat docker-compose.yml | grep amazon`'.split(' ').last.split(':').first")
