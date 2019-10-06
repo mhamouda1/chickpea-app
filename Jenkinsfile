@@ -6,12 +6,12 @@ pipeline {
   }
   stages {
     stage ("Build") {
-      when {
-        anyOf {
-          branch 'master';
-          branch 'staging'
-        }
-      }
+      /* when { */
+        /* anyOf { */
+          /* branch 'master'; */
+          /* branch 'staging' */
+        /* } */
+      /* } */
       steps {
         echo "Building..."
         sh 'echo ls -al'
