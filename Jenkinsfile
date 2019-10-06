@@ -4,26 +4,17 @@ pipeline {
         label 'agent-1'
       }
   }
-  /* environment { */
-    /* MY_OUTPUT = "" */
-  /* } */
   stages {
     stage ("Build") {
-      /* script { */
-          /* if (ENVIRONMENT_NAME == 'development') { */
-              /* ENV_NAME = 'Development' */
-          /* } else if (ENVIRONMENT_NAME == 'release') { */
-              /* ENV_NAME = 'Production' */
-          /* } */
-      /* } */
+      when {
+        branch '*/master'
+      }
       steps {
         echo "Building..."
-        echo "The Node Name is: ${NODE_NAME}"
-        sh "cat /etc/hosts"
-        script {
-          MY_OUTPUT = sh (script: 'cat /etc/hosts', returnStdout: true).trim()
-        }
-        echo "The output of my_output is: ${MY_OUTPUT}"
+        sh 'echo ls -al'
+        /* sh 'docker login -u ${DOCKER_REGISTRY_CREDENTIALS_USR} -p ${DOCKER_REGISTRY_CREDENTIALS_PSW} registry.gitlab.com' */
+        /* sh 'docker build -t ${IMAGE}:${BRANCH_NAME} .' */
+        /* sh 'docker push ${IMAGE}:${BRANCH_NAME}' */
       }
     }
     stage ("Test") {
