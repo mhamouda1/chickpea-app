@@ -12,10 +12,10 @@ spec:
   template:
     metadata:
       labels:
-        app: ruby-docker-app
+        app: chickpea-app
     spec:
       containers:
-      - name: ruby-docker-app
+      - name: chickpea-app
         image: 123.dkr.ecr.us-east-1.amazonaws.com/ruby-docker-app:8197272a7b6f033d4c9438505944aeefee1d1796
         ports:
         - containerPort: 3000
