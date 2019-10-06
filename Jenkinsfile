@@ -17,7 +17,6 @@ pipeline {
       }
       steps {
         echo "Building..."
-        echo "The output of my_output is: ${MY_OUTPUT}"
         echo sh(returnStdout: true, script: 'env')
         echo "${AWS_ACCESS_KEY_ID}"
         echo "${AWS_SECRET_ACCESS_KEY}"
