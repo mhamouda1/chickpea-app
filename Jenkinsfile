@@ -18,6 +18,7 @@ pipeline {
       steps {
         echo sh(returnStdout: true, script: 'env')
         withAWS(credentials:'abcdefg') {
+          echo sh(returnStdout: true, script: 'env')
           sh "sudo bash build.sh"
         }
         echo "Building..."
