@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'deploying script'
+echo 'provision script'
