@@ -6,12 +6,11 @@ pipeline {
   }
   stages {
     stage ("Build") {
-      /* when { */
-        /* anyOf { */
-          /* branch 'master'; */
-          /* branch 'staging' */
-        /* } */
-      /* } */
+      when {
+        expression {
+          return env.GIT_BRANCH == "origin/master"
+        }
+      }
       steps {
         echo "Building..."
         sh 'echo ls -al'
