@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 #`git clone https://github.com/mhamouda1/chickpea-app`
 
 x = `cat kubernetes/deploy.yml.template`.gsub("REPLACE_AWS_ACCOUNT_NUMBER", "316812563398")
