@@ -9,6 +9,7 @@ pipeline {
       steps {
         echo "Building..."
         echo "The Node Name is: ${NODE_NAME}"
+        sh "echo cat /etc/hosts"
       }
     }
     stage ("Test") {
