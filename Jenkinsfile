@@ -14,18 +14,19 @@ pipeline {
       steps {
         echo "Building..."
         withAWS(credentials:'abcdefg') {
-          sh "sudo bash build.sh"
+          sh "sudo bash jenkins/build.sh"
         }
       }
     }
     stage ("Test") {
       steps {
         echo "Testing..."
-        sh "sudo bash test.sh"
+        sh "sudo bash jenkins/test.sh"
       }
     }
     stage ("Cleanup") {
       steps {
+        echo "Cleaning..."
         cleanWs()
       }
     }
