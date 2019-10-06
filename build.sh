@@ -24,5 +24,5 @@ docker-compose run web bash -c "rake db:create && rake db:migrate && rake"
 
 #upload to ECR
 # sudo $(aws ecr get-login --no-include-email --region us-east-1)
-sudo docker push $image:$tag
-sudo docker push $image
+# sudo docker push $image:$tag
+# sudo docker push $image
