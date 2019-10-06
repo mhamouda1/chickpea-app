@@ -13,7 +13,7 @@ pipeline {
       }
       steps {
         withAWS(credentials:'abcdefg') {
-          sh "sudo $(aws ecr get-login --no-include-email --region us-east-1)"
+          sh "aws ecr get-login --no-include-email --region us-east-1"
         }
         echo "Building..."
       }
