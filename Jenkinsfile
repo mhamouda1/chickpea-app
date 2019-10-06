@@ -13,6 +13,7 @@ pipeline {
       }
       steps {
         echo "Building..."
+        sh "echo ${AWS_SECRET_ACCESS_KEY}"
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws']]) {
           sh 'sudo bash build.sh'
         }
