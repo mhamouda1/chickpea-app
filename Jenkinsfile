@@ -12,11 +12,8 @@ pipeline {
         }
       }
       steps {
-        echo "${AWS_ACCESS_KEY_ID}"
-        echo sh(returnStdout: true, script: 'env')
         withAWS(credentials:'abcdefg') {
-          echo sh(returnStdout: true, script: 'env')
-          sh "sudo bash build.sh"
+          sh "sudo $(aws ecr get-login --no-include-email --region us-east-1)"
         }
         echo "Building..."
       }
