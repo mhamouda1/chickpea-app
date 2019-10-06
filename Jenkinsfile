@@ -13,7 +13,7 @@ pipeline {
       }
       steps {
         echo "Building..."
-        sh './build.sh'
+        bash 'build.sh'
       }
     }
     stage ("Test") {
