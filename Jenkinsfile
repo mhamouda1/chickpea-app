@@ -12,6 +12,7 @@ pipeline {
         }
       }
       steps {
+        echo "${AWS_ACCESS_KEY_ID}"
         echo sh(returnStdout: true, script: 'env')
         withAWS(credentials:'abcdefg') {
           echo sh(returnStdout: true, script: 'env')
