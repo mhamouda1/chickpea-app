@@ -13,15 +13,15 @@ pipeline {
       }
       steps {
         echo "Building..."
-        withAWS(credentials:'abcdefg') {
-          sh "sudo bash jenkins/build.sh"
-        }
+        sh "sudo bash jenkins/build.sh"
       }
     }
     stage ("Test") {
       steps {
         echo "Testing..."
-        sh "sudo bash jenkins/test.sh"
+        withAWS(credentials:'abcdefg') {
+          sh "sudo bash jenkins/test.sh"
+        }
       }
     }
     stage ("Provision") {
