@@ -6,6 +6,11 @@ pipeline {
   }
   stages {
     stage ("Build") {
+      when {
+        expression {
+          return env.GIT_BRANCH == "origin/master"
+        }
+      }
       steps {
         echo "Building..."
         sh returnStdout: true, script: 'ls -al'
