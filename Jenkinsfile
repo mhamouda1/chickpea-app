@@ -13,6 +13,10 @@ pipeline {
       }
       steps {
         echo "Building..."
+        script {
+          revision = sh(returnStdout: true, script: 'echo $(git rev-parse HEAD)')
+        }
+        echo "revision is = ${revision}"
         sh 'sudo bash build.sh'
       }
     }
