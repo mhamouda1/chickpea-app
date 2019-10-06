@@ -19,7 +19,7 @@ pipeline {
       steps {
         echo "Building..."
         echo "The Node Name is: ${NODE_NAME}"
-        /* sh "cat /etc/hosts" */
+        # sh "cat /etc/hosts"
         script {
           MY_OUTPUT = sh (script: 'cat /etc/hosts', returnStdout: true).trim()
         }
