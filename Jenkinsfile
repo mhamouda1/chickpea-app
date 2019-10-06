@@ -4,6 +4,10 @@ pipeline {
         label 'agent-1'
       }
   }
+  environment {
+    IMAGE = ''
+    TAG = ''
+  }
   stages {
     stage ("Build") {
       when {
