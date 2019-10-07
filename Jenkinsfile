@@ -6,14 +6,14 @@ pipeline {
   }
   environment {
     ES_HOST = "157.245.224.16"
-    INJECT_SECRETS_DIR = "my_secrets"
+    INPUT_ARTIFACTS_DIR = "artifacts"
   }
   stages {
-    stage ("Inject Sensitive Inputs") {
+    stage ("Input Artifacts") {
       steps {
-        echo "Inject Sensitive Inputs"
+        echo "Input Artifacts"
         sh "echo '$ES_HOST' > ES_HOST.txt"
-        sh "echo '$INJECT_SECRETS_DIR' > SECRETS_DIR.txt"
+        sh "echo '$INPUT_ARTIFACTS_DIR' > INPUT_ARTIFACTS_DIR.txt"
         sh "sudo ruby jenkins/inputs/database.rb"
         sh "sudo ruby jenkins/inputs/ecr.rb"
         sh "sudo ruby jenkins/inputs/s3.rb"
