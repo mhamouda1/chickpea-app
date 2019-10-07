@@ -2,7 +2,7 @@ require 'json'
 @ES_HOST = ENV['ES_HOST'] || `$(echo cat ES_HOST.txt)`.chomp
 @DATABASE_NAME = "chickpea"
 @DATABASE_ENV = "production"
-@SECRETS_DIR = `$(echo cat ES_HOST.txt)`.chomp + "/database"
+@SECRETS_DIR = `$(echo cat SECRETS_DIR.txt)`.chomp + "/database"
 
 puts @SECRETS_DIR
 puts @ES_HOST

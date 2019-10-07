@@ -2,7 +2,7 @@ require 'json'
 @ES_HOST = ENV['ES_HOST'] || `$(echo cat ES_HOST.txt)`.chomp
 @ECR_NAME = "chickpea"
 @ECR_ENV = "production"
-@SECRETS_DIR = `$(echo cat ES_HOST.txt)`.chomp + "/ecr"
+@SECRETS_DIR = `$(echo cat SECRETS_DIR.txt)`.chomp + "/ecr"
 
 `mkdir -p #{@SECRETS_DIR}`
 
