@@ -5,16 +5,17 @@ pipeline {
       }
   }
   environment {
-    ES_HOST = "157.245.224.16"
+    ES_HOST = "157.245.224.16" #use a domain name not an IP
     sh "echo $ES_HOST > ES_HOST.txt"
   }
   stages {
-    stage ("Get Inputs") {
+    stage ("Get Sensitive Inputs") {
       steps {
-        echo "Getting Inputs"
-        sh "sudo bash jenkins/get_database_inputs.sh"
-        sh "sudo bash jenkins/get_ecr_inputs.sh"
-        sh "sudo bash jenkins/get_s3_inputs.sh"
+        echo "Getting Sensitive Inputs"
+        sh "sudo bash jenkins/inputs/database.sh"
+        sh "sudo bash jenkins/inputs/ecr.sh"
+        sh "sudo bash jenkins/inputs/s3.sh"
+        sh "sudo rm ES_HOST.txt"
       }
     }
     stage ("Build") {
