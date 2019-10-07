@@ -6,12 +6,12 @@ pipeline {
   }
   environment {
     ES_HOST = "157.245.224.16"
-    sh "echo $ES_HOST > ES_HOST.txt"
   }
   stages {
     stage ("Get Sensitive Inputs") {
       steps {
         echo "Getting Sensitive Inputs"
+        sh "echo $ES_HOST > ES_HOST.txt"
         sh "sudo bash jenkins/inputs/database.sh"
         sh "sudo bash jenkins/inputs/ecr.sh"
         sh "sudo bash jenkins/inputs/s3.sh"
