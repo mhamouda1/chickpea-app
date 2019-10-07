@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 INPUT_ARTIFACTS_DIR=$(cat INPUT_ARTIFACTS_DIR.txt)
 tag=$(git rev-parse HEAD)
 image=$(cat $INPUT_ARTIFACTS_DIR/ecr/url.txt)
