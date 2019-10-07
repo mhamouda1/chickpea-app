@@ -52,11 +52,11 @@ pipeline {
     }
   }
   post {
-    always {
-      echo 'Test run completed'
-    }
     cleanup {
       cleanWs()
+    }
+    always {
+      echo 'Test run completed'
     }
     success {
       echo 'Successfully!'
