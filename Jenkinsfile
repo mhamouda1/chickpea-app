@@ -33,8 +33,8 @@ pipeline {
     stage ("Test") {
       steps {
         echo "Testing..."
-        sh "sudo docker-compose run web bash -c 'rake'"
         withAWS(credentials:'abcdefg') {
+          sh "sudo docker-compose run web bash -c 'rake'"
           sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
           sh "sudo bash jenkins/test.sh"
         }
