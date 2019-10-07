@@ -20,9 +20,20 @@ pipeline {
       }
     }
   }
-  /* post { */
-    /* cleanup { */
-      /* cleanWs() */
-    /* } */
-  /* } */
+  stage ("Build") {
+    when {
+      expression {
+        return env.GIT_BRANCH == "origin/master"
+      }
+    }
+    steps {
+      echo "Building..."
+      sh "sudo bash jenkins/build.sh"
+    }
+  }
+  post {
+    cleanup {
+      cleanWs()
+    }
+  }
 }
