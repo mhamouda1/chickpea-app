@@ -1,4 +1,3 @@
-#!/bin/bash -e
 #get variables
 tag=$(cat tag.txt)
 image=$(cat image.txt)
