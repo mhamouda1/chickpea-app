@@ -4,6 +4,9 @@ require 'json'
 @DATABASE_ENV = "production"
 @SECRETS_DIR = `$(echo cat ES_HOST.txt)`.chomp + "/database"
 
+puts @SECRETS_DIR
+puts @ES_HOST
+
 `mkdir -p #{@SECRETS_DIR}`
 
 `curl -XGET "http://#{@ES_HOST}:9200/chickpea/_search" -H 'Content-Type: application/json' -d'{  "query": {    "bool" : {      "must" : [        {  "term" : { "database.name.keyword": "'#{@DATABASE_NAME}'" }},        {  "term" : { "database.environment.keyword" : "'#{@DATABASE_ENV}'" }}      ]    }  }}' > #{@SECRETS_DIR}/results.txt`
