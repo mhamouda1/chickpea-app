@@ -1,4 +1,3 @@
-require 'pry'
 require 'json'
 @ES_HOST = ENV['ES_HOST'] || `$(echo cat ES_HOST.txt)`.chomp
 @DATABASE_NAME = "chickpea"
