@@ -49,11 +49,7 @@ pipeline {
         echo "Deploying..."
         sh "sudo bash jenkins/deploy.sh"
       }
-      post {
-        always {
-          cleanWs()
-        }
-      }
     }
+    post { cleanup { cleanWs() } }
   }
 }
