@@ -28,7 +28,6 @@ pipeline {
         sh "sudo ruby jenkins/inputs/database.rb"
         sh "sudo ruby jenkins/inputs/ecr.rb"
         sh "sudo ruby jenkins/inputs/s3.rb"
-        sh "sudo rm ES_HOST.txt"
       }
     }
     stage ("Test") {
