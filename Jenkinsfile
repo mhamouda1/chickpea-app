@@ -30,6 +30,7 @@ pipeline {
     }
     stage ("Test") {
       steps {
+        echo "${env.BRANCH_NAME}"
         echo "Testing..."
         sh "sudo docker-compose run web bash -c 'rake db:create && rake db:migrate && rake'" /* this CAN NOT go in a shell script */
         withAWS(credentials:'abcdefg') {
