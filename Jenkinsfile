@@ -35,8 +35,8 @@ pipeline {
         echo "Testing..."
         sh "sudo docker-compose run web bash -c 'rake db:create && rake db:migrate && rake'" /* this CAN NOT go in a shell script */
         withAWS(credentials:'abcdefg') {
-          sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
-          sh "sudo bash jenkins/test.sh"
+          sh "\$(aws ecr get-login --no-include-email --region us-east-1)" /* this does not work in the script */
+          sh "sudo bash jenkins/push_ecr.sh"
         }
       }
     }

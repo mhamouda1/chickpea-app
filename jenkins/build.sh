@@ -9,5 +9,3 @@ echo $image > image.txt
 
 #build image
 docker build -t $image:$tag -t $image:latest -f docker/web/Dockerfile .
-
-asdasdf
