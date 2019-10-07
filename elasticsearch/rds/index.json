@@ -1,0 +1,9 @@
+{
+  "database": {
+    "name": "core",
+    "username": "placeholder",
+    "password": "placeholder",
+    "environment": "production"
+  }
+}
+//POST /chickpea/_doc

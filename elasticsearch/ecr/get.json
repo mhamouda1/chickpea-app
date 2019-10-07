@@ -1,0 +1,8 @@
+{
+  "ecr": {
+    "name": "chickpea-app",
+    "repository_url": "core",
+    "environment": "production"
+  }
+}
+//POST /chickpea/_doc

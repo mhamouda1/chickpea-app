@@ -1,0 +1,11 @@
+{
+  "query": {
+    "bool" : {
+      "must" : [
+        {  "term" : { "s3.name.keyword": "chickpea-app" }},
+        {  "term" : { "s3.environment.keyword" : "production" }}
+      ]
+    }
+  }
+}
+// GET /chickpea/_search

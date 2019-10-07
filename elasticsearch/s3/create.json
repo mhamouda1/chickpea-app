@@ -1,0 +1,8 @@
+{
+  "s3": {
+    "name": "chickpea-app",
+    "environment": "production",
+    "bucket": "my-39898a9d8f9df-bucket"
+  }
+}
+//POST /chickpea/_doc

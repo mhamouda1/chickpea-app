@@ -1,0 +1,8 @@
+{
+  "query": {
+    "match": {
+      "ecr.name": "chickpea-app"
+    }
+  }
+}
+//POST /chickpea/_search

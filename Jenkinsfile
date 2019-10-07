@@ -6,13 +6,15 @@ pipeline {
   }
   environment {
     ES_HOST = "157.245.224.16"
+    sh "echo $ES_HOST > ES_HOST.txt"
   }
   stages {
-    stage ("Get Secrets") {
+    stage ("Get Inputs") {
       steps {
-        echo "Getting Secrets"
-        sh "echo $ES_HOST > ES_HOST.txt"
-        sh "sudo bash jenkins/get_secrets.sh"
+        echo "Getting Inputs"
+        sh "sudo bash jenkins/get_database_inputs.sh"
+        sh "sudo bash jenkins/get_ecr_inputs.sh"
+        sh "sudo bash jenkins/get_s3_inputs.sh"
       }
     }
     stage ("Build") {

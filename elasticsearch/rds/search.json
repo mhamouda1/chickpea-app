@@ -1,0 +1,11 @@
+{
+  "query": {
+    "bool" : {
+      "must" : [
+        {  "term" : { "database.name.keyword": "core" }},
+        {  "term" : { "database.environment.keyword" : "production" }}
+      ]
+    }
+  }
+}
+//GET /chickpea/_search

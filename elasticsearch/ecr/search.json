@@ -1,0 +1,11 @@
+{
+  "query": {
+    "bool" : {
+      "must" : [
+        {  "term" : { "ecr.name.keyword": "chickpea-app" }},
+        {  "term" : { "ecr.environment.keyword" : "production" }}
+      ]
+    }
+  }
+}
+//GET /chickpea/_search

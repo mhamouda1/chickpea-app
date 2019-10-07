@@ -1,0 +1,8 @@
+{
+  "query": {
+    "match": {
+      "database.name": "core"
+    }
+  }
+}
+//POST /chickpea/_delete_by_query

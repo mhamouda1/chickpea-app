@@ -1,0 +1,9 @@
+{
+  "database": {
+    "name": "core",
+    "username": "my-username",
+    "password": "c29398323sasdffd",
+    "environment": "production"
+  }
+}
+//POST /chickpea/_update/y0Q1o20BRymtOHC1F2Ns
