@@ -23,8 +23,8 @@ pipeline {
     stage ("Inject Sensitive Inputs") {
       steps {
         echo "Inject Sensitive Inputs"
-        sh "echo $ES_HOST > ES_HOST.txt"
-        sh "echo $INJECT_SECRETS_DIR > SECRETS_DIR.txt"
+        sh "echo '$ES_HOST' > ES_HOST.txt"
+        sh "echo '$INJECT_SECRETS_DIR' > SECRETS_DIR.txt"
         sh "sudo ruby jenkins/inputs/database.rb"
         sh "sudo ruby jenkins/inputs/ecr.rb"
         sh "sudo ruby jenkins/inputs/s3.rb"
