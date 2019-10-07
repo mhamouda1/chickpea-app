@@ -21,7 +21,7 @@ pipeline {
     }
     stage ("Build") {
       when {
-        branch "master"
+        expression { env.BRANCH_NAME == 'master' }
       }
       steps {
         echo "Building..."
