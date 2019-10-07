@@ -12,9 +12,9 @@ pipeline {
       steps {
         echo "Getting Sensitive Inputs"
         sh "echo $ES_HOST > ES_HOST.txt"
-        sh "sudo bash jenkins/inputs/database.rb"
-        sh "sudo bash jenkins/inputs/ecr.rb"
-        sh "sudo bash jenkins/inputs/s3.rb"
+        sh "sudo ruby jenkins/inputs/database.rb"
+        sh "sudo ruby jenkins/inputs/ecr.rb"
+        sh "sudo ruby jenkins/inputs/s3.rb"
         sh "sudo rm ES_HOST.txt"
       }
     }
