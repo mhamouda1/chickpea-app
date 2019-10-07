@@ -19,16 +19,16 @@ pipeline {
         sh "sudo ruby jenkins/inputs/s3.rb"
       }
     }
-  }
-  stage ("Build") {
-    when {
-      expression {
-        return env.GIT_BRANCH == "origin/master"
+    stage ("Build") {
+      when {
+        expression {
+          return env.GIT_BRANCH == "origin/master"
+        }
       }
-    }
-    steps {
-      echo "Building..."
-      sh "sudo bash jenkins/build.sh"
+      steps {
+        echo "Building..."
+        sh "sudo bash jenkins/build.sh"
+      }
     }
   }
   post {
