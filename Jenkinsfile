@@ -1,4 +1,5 @@
 pipeline {
+  cleanWs()
   agent {
       node {
         label 'agent-1'
@@ -50,9 +51,8 @@ pipeline {
         sh "sudo bash jenkins/deploy.sh"
       }
     }
-    stage ("Cleanup") {
-      steps {
-        echo "Cleaning..."
+    post {
+      always {
         cleanWs()
       }
     }
