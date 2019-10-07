@@ -9,17 +9,6 @@ pipeline {
     INJECT_SECRETS_DIR = "my_secrets"
   }
   stages {
-    stage ("Build") {
-      when {
-        expression {
-          return env.GIT_BRANCH == "origin/master"
-        }
-      }
-      steps {
-        echo "Building..."
-        sh "sudo bash jenkins/build.sh"
-      }
-    }
     stage ("Inject Sensitive Inputs") {
       steps {
         echo "Inject Sensitive Inputs"
