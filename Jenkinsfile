@@ -5,7 +5,7 @@ pipeline {
       }
   }
   environment {
-    ES_HOST = "157.245.224.16" #use a domain name not an IP
+    ES_HOST = "157.245.224.16" //use a domain name not an IP
     sh "echo $ES_HOST > ES_HOST.txt"
   }
   stages {
