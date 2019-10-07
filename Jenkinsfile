@@ -6,18 +6,9 @@ pipeline {
   }
   environment {
     ES_HOST = "157.245.224.16"
+    INJECT_SECRETS_DIR = "my_secrets"
   }
   stages {
-    stage ("Get Sensitive Inputs") {
-      steps {
-        echo "Getting Sensitive Inputs"
-        sh "echo $ES_HOST > ES_HOST.txt"
-        sh "sudo ruby jenkins/inputs/database.rb"
-        sh "sudo ruby jenkins/inputs/ecr.rb"
-        sh "sudo ruby jenkins/inputs/s3.rb"
-        sh "sudo rm ES_HOST.txt"
-      }
-    }
     stage ("Build") {
       when {
         expression {
@@ -27,6 +18,17 @@ pipeline {
       steps {
         echo "Building..."
         sh "sudo bash jenkins/build.sh"
+      }
+    }
+    stage ("Inject Sensitive Inputs") {
+      steps {
+        echo "Inject Sensitive Inputs"
+        sh "echo $ES_HOST > ES_HOST.txt"
+        sh "echo $INJECT_SECRETS_DIR > SECRETS_DIR.txt"
+        sh "sudo ruby jenkins/inputs/database.rb"
+        sh "sudo ruby jenkins/inputs/ecr.rb"
+        sh "sudo ruby jenkins/inputs/s3.rb"
+        sh "sudo rm ES_HOST.txt"
       }
     }
     stage ("Test") {
@@ -52,9 +54,9 @@ pipeline {
     }
   }
   post {
-    cleanup {
-      cleanWs()
-    }
+    /* cleanup { */
+      /* cleanWs() */
+    /* } */
     always {
       echo 'Test run completed'
     }
