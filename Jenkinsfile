@@ -1,5 +1,4 @@
 pipeline {
-  cleanWs()
   agent {
       node {
         label 'agent-1'
