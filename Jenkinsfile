@@ -21,7 +21,7 @@ pipeline {
     }
     stage ("Build") {
       when {
-        expression { env.BRANCH_NAME == 'master' }
+        expression { return env.GIT_BRANCH == "origin/master" }
       }
       steps {
         echo "Building..."
