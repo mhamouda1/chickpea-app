@@ -50,7 +50,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
-    dalli (2.7.10)
+    dalli (3.2.3)
     debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
